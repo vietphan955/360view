@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo View 360 VietArt</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .button-bar {
+      padding: 5px;
+      background: #f0f0f0;
+      text-align: center;
+    }
+    .button-bar button {
+      margin: 2.5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .viewer {
+      flex: 1;
+      border: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-bar">
+    <button onclick="changeView(0)">Phòng 4 view 1</button>
+    <button onclick="changeView(1)">Phòng 4 view 2</button>
+    <button onclick="changeView(2)">Phòng 4 view 3</button>
+    <button onclick="changeView(3)">Phòng 4 view 4</button>
+    <button onclick="changeView(4)">Phòng 4 view 5</button>
+    <button onclick="changeView(5)">Phòng 4 view 6</button>
+    <button onclick="changeView(6)">Phòng 1 view 1</button>
+    <button onclick="changeView(7)">Phòng 1 view 2</button>
+    <button onclick="changeView(8)">Phòng 1 view 3</button>
+    <button onclick="changeView(9)">Phòng 1 view 4</button>
+    <button onclick="changeView(10)">Phòng 1 view 5</button>
+    <button onclick="changeView(11)">Phòng 1 view 6</button>
+    <button onclick="changeView(12)">Phòng 3 view 1</button>
+    <button onclick="changeView(13)">Phòng 3 view 2</button>
+    <button onclick="changeView(14)">Phòng 2 view 1</button>
+    <button onclick="changeView(15)">Sảnh Chính view 1</button>
+    <button onclick="changeView(16)">Sảnh Chính view 2</button>
+    <button onclick="changeView(17)">Sảnh Chính view 3</button>
+    <button onclick="changeView(18)">Sảnh Chính view 4</button>
+    
+  </div>
+  <iframe
+    id="viewer"
+    class="viewer"
+    src="https://momento360.com/e/u/8c0a50546fcc41cebdc4b2aa9f9df7f3?utm_campaign=embed&utm_source=other&heading=64.82&pitch=-14.89&field-of-view=75&size=medium&display-plan=true"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    const urls = [
+      "https://momento360.com/e/u/8c0a50546fcc41cebdc4b2aa9f9df7f3?utm_campaign=embed&utm_source=other&heading=64.82&pitch=-14.89&field-of-view=75&size=medium&display-plan=true",
+      "https://momento360.com/e/u/8d77d5f32d1a4c78b3e629a922e76caf?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+      "https://momento360.com/e/u/c69c66e5f6c3496c988663ea3adc6dab?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+      "https://momento360.com/e/u/ff182f30f5cc423f98ac80d865b701d2?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=tru",
+      "https://momento360.com/e/u/0c9ec7d2fa9b4eb7891a436b44686176?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+      "https://momento360.com/e/u/7ce33f60e09d48cf96df9149fa130fed?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/abaff924b587471da2402930da416aa7?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/de621368a1784d658594991229d2160a?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/8518517e0dd746b687ce94b1e3129ae2?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/1c46dcdb462542c6afbf27a056a2c498?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/a5d82f43e0474bcaa3ccc105d1c0d861?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/16522436d9354c81addea69d5b1430d2?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/96673d48e0254e0aab6fccd242c9f16a?utm_campaign=embed&utm_source=other&heading=39.42&pitch=1.29&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/72c230cfac6c451c8d325f5101b0ac69?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/3f6ea6a697bd40a5a20c7d408e787051?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/c954e12f48964bcb8e515978c65adb2f?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/b4b15208f1764362be0be5211ec45edb?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/c06fd4f65b6a4801a29e887eb8f3789c?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+"https://momento360.com/e/u/2c92f7ad8787402f81734334c8703a50?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium&display-plan=true",
+
+
+
+
+
+
+
+    ];
+
+    function changeView(index) {
+      const viewer = document.getElementById('viewer');
+      viewer.src = urls[index];
+    }
+  </script>
+
+</body>
+</html>
+
